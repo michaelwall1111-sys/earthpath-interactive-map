@@ -346,16 +346,9 @@ function onPointerMove(evt) {
         }
     }
 
-    if (doHover) {
-        if (popupText) {
-			content.innerHTML = popupText;
-            container.style.display = 'block';
-            overlayPopup.setPosition(coord);
-        } else {
-            container.style.display = 'none';
-            closer.blur();
-        }
-    }
+    // Hover popups are intentionally disabled. Popups are opened only on click,
+    // so the pointer can move into the popup and click its links.
+
 };
 
 map.on('pointermove', onPointerMove);
