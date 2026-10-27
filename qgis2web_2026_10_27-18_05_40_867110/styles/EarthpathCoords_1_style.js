@@ -9,7 +9,7 @@ var style_EarthpathCoords_1 = function(feature, resolution){
     
     var labelText = ""; 
     var value = feature.get("");
-    var labelFont = "bold 14px 'Open Sans', sans-serif";
+    var labelFont = "bold 15px 'Open Sans', sans-serif";
     var labelFill = "#253238";
     var bufferColor = "#ffffff";
     var bufferWidth = 2;
@@ -23,8 +23,8 @@ var style_EarthpathCoords_1 = function(feature, resolution){
         labelText = String(feature.get("Point No."));
     }
     var style = [ new ol.style.Style({
-        image: new ol.style.Circle({radius: 11 + size,
-            displacement: [0, 0], stroke: new ol.style.Stroke({color: '#253238', lineDash: null, lineCap: 'round', lineJoin: 'round', width: 2.5}), fill: new ol.style.Fill({color: '#F4D35E'})}),
+        image: new ol.style.Circle({radius: 15 + size,
+            displacement: [0, 0], stroke: new ol.style.Stroke({color: '#17252A', lineDash: null, lineCap: 'round', lineJoin: 'round', width: 3}), fill: new ol.style.Fill({color: '#F4D35E'})}),
         text: createTextStyle(feature, resolution, labelText, labelFont,
                               labelFill, placement, bufferColor,
                               bufferWidth, textAlign, offsetX, offsetY, overflow, repeat)
