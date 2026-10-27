@@ -92,6 +92,13 @@ styleCursorMove();
 var container = document.getElementById('popup');
 var content = document.getElementById('popup-content');
 var closer = document.getElementById('popup-closer');
+// Keep interactions inside the popup from bubbling to the map. Otherwise a click
+// on a popup link is treated as a map click and immediately closes the popup.
+['pointerdown', 'pointerup', 'click', 'dblclick', 'mousedown', 'mouseup', 'touchstart', 'touchend'].forEach(function(eventName) {
+    container.addEventListener(eventName, function(evt) {
+        evt.stopPropagation();
+    });
+});
 var sketch;
 
 function stopMediaInPopup() {
