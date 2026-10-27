@@ -46,12 +46,55 @@
         <title></title>
     </head>
     <body>
+        <style>
+        #earthpath-legend {
+            position: fixed; z-index: 1000; top: 12px; right: 12px;
+            width: 230px; max-width: calc(100vw - 48px);
+            max-height: 55vh; overflow-y: auto; box-sizing: border-box;
+            padding: 14px 16px; background: rgba(255,255,255,0.96);
+            border: 1px solid #d6dadd; border-radius: 10px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.28);
+            color: #253238; font: 13px/1.35 Arial, sans-serif;
+        }
+        #earthpath-legend h2 { margin: 0 0 9px; font-size: 16px; }
+        #earthpath-legend ol { margin: 0; padding-left: 26px; }
+        #earthpath-legend li { padding: 3px 0; }
+        #earthpath-legend li::marker { font-weight: 700; color: #253238; }
+        @media (max-width: 600px) {
+            #earthpath-legend { top: auto; bottom: 12px; right: 10px; width: 190px; max-height: 38vh; font-size: 12px; }
+            #earthpath-legend h2 { font-size: 14px; }
+        }
+        </style>
         <div id="map">
             <div id="popup" class="ol-popup">
                 <a href="#" id="popup-closer" class="ol-popup-closer"></a>
                 <div id="popup-content"></div>
             </div>
         </div>
+        <aside id="earthpath-legend" aria-label="Map point legend">
+            <h2>Point Legend</h2>
+            <ol>
+                <li>Cabin</li>
+                <li>Main Camp</li>
+                <li>Linden Forest</li>
+                <li>Foxy Fields</li>
+                <li>Clay Water Fall</li>
+                <li>Brett's Farm</li>
+                <li>Birch Forest</li>
+                <li>Scenic Lookout</li>
+                <li>Meditation Valley</li>
+                <li>North Clay Creek</li>
+                <li>North Ravine</li>
+                <li>North Pine Forest</li>
+                <li>Salamander Creek</li>
+                <li>North Forest/Ironwoods</li>
+                <li>Underpass</li>
+                <li>Bridge</li>
+                <li>Azebon Tree</li>
+                <li>Roots Edge Lookout</li>
+                <li>Mother Pine</li>
+            </ol>
+        </aside>
         <script src="resources/qgis2web_expressions.js"></script>
 <script src="resources/proj4.js"></script>
         <script>proj4.defs('EPSG:3857','+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs');</script>
