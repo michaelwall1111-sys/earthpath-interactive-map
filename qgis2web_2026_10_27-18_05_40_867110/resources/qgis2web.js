@@ -202,6 +202,14 @@ function createPopupField(currentFeature, currentFeatureKeys, layer) {
             popupText += '<tr>' + popupField + '</tr>';
         }
     }
+    if (layer.get('popuplayertitle') === 'Earthpath Co-ords') {
+        var geometry = currentFeature.getGeometry();
+        if (geometry && geometry.getType() === 'Point') {
+            var lonLat = ol.proj.transform(geometry.getCoordinates(), map.getView().getProjection(), 'EPSG:4326');
+            var googleMapsUrl = 'https://www.google.com/maps?q=' + lonLat[1].toFixed(6) + ',' + lonLat[0].toFixed(6);
+            popupText += '<tr><td colspan="2" style="padding-top:8px"><a href="' + googleMapsUrl + '" target="_blank" rel="noopener noreferrer" style="display:inline-block;background:#F4D35E;color:#17252A;padding:8px 10px;border-radius:5px;font-weight:bold;text-decoration:none">📍 Open in Google Maps</a></td></tr>';
+        }
+    }
     return popupText;
 }
 
